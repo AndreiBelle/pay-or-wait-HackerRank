@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./db.sqlite"
+}
+
+// Estrutura para Login de Administrador
+model SystemAdmin {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+// Fila de Processamento
+model ProcessedRequest {
+  id                String   @id @default(uuid())
+  originalRequestId String   @unique 
+  userId            String   
+  status            String
+  processedAt       DateTime @default(now())
+  tokenUsage        TokenUsage?
+}
+
+// Auditoria de Custos da IA
+model TokenUsage {
+  id                String   @id @default(uuid())
+  inputTokens       Int
+  outputTokens      Int
+  totalTokens       Int
+  requestId         String   @unique
+  request           ProcessedRequest @relation(fields: [requestId], references: [id])
+}

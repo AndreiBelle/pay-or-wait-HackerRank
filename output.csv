@@ -1,0 +1,58 @@
+request_id,amount_safe_to_pay,affordability_status,recommended_payment_method,payment_plan,earliest_date_for_full_payment,spending_changes_needed,decision_explanation
+,0,affordable_now,full_payment,none,2026-04-01,none,"### Decision Summary
+**DECISION:** APPROVED / YES
+**RECOMMENDED PAYMENT OPTION:** `opt_1` (full_payment)
+
+---
+
+### 1. Financial Context & Exchange Rate Estimation
+* **User ID:** user_29
+* **Request ID:** request_29
+* **Main Currency:** USD
+* **Current Balance:** $5,000.00 USD
+* **Minimum Balance Requirement:** $500.00 USD
+* **Maximum Available Funds for Investment:** $4,500.00 USD ($5,000 - $500)
+* **Investment Opportunity Amount:** ZAR 51,524
+  * *Conversion Rate (Approx. 18.5 ZAR/USD):* ~ $2,785.00 USD
+  * *Note:* ZAR 51,524 equates to approximately $2,785 USD, which is well within the $4,500 USD available spending limit.
+
+---
+
+### 2. 90-Day Cash Flow Simulation
+
+| Date | Event / Action | Amount (USD) | Balance (USD) | Min Balance Met ($500)? |
+| :--- | :--- | :---: | :---: | :---: |
+| **Initial** | Starting Balance | — | **$5,000.00** | YES |
+| **Immediate** | Investment Outflow (`opt_1` - Full Payment) | -$2,785.00 | **$2,215.00** | YES |
+| **2026-04-01** | Event 01: Salary | +$3,000.00 | **$5,215.00** | YES |
+| **2026-04-05** | Event 02: Rent | -$1,200.00 | **$4,015.00** | YES |
+
+* **Lowest Balance during 90-day period:** $2,215.00 USD
+* **Status:** Passed. The balance never falls below the mandatory threshold of $500.00 USD.
+
+---
+
+### 3. Payment Option Analysis
+
+* **`opt_1` (full_payment):** **RECOMMENDED**. Paying in full leaves $2,215.00 USD immediately available, which easily covers upcoming rent ($1,200.00 USD) even prior to receiving salary. It aligns directly with the user's preference to avoid high-interest installments.
+* **`opt_2` (installments - 3 count):** Not required and not recommended, as it adds unnecessary payment schedules/fees and full payment poses zero financial risk.
+
+---
+
+### Structured Evaluation Output
+
+```json
+{
+  ""user_id"": ""user_29"",
+  ""request_id"": ""request_29"",
+  ""decision"": ""APPROVED"",
+  ""can_afford"": true,
+  ""payment_option_id"": ""opt_1"",
+  ""starting_balance_usd"": 5000.00,
+  ""minimum_balance_usd"": 500.00,
+  ""investment_amount_zar"": 51524,
+  ""estimated_investment_amount_usd"": 2785.00,
+  ""lowest_simulated_balance_usd"": 2215.00,
+  ""rule_90_day_test_passed"": true
+}
+```"
