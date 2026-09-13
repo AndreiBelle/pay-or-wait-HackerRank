@@ -1,3 +1,4 @@
-Run 'npm install' in the terminal, followed by 'npm run dev'.
-
-Executar o 'npm install' no terminal e depois 'npm run dev'
+You need a standalone .env file in the 
+'financial-agent-backend' folder containing a Gemini API key (the free one works fine, which is what I used) 
+and the database path: `GEMINI_API_KEY=YOUR_API_KEY_HERE` and `DATABASE_URL="file:./prisma/db.sqlite"`. 
+After that, run `npm install` in the terminal, followed by `npm run dev`.
