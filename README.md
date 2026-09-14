@@ -1,6 +1,6 @@
 ## Buy or Wait?
 
-Build an AI-powered financial agent that decides whether a user can safely afford a requested expense.
+AI-powered financial agent that decides whether a user can safely afford a requested expense.
 
 A user may ask: **"Can I afford this laptop?"**
 
