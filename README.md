@@ -1,3 +1,5 @@
+# Em desenvolvimento!
+
 ## Comprar ou Esperar?
 
 Agente financeiro de IA que decide se um usuário tem condições de arcar com segurança com uma despesa solicitada.
